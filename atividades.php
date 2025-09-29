@@ -5,6 +5,9 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
     header("Location: index.php");
     exit;
 }
+if (!isset($_SESSION['pk_turma'])) {
+    $_SESSION['pk_turma'] = $_GET['codigo'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +16,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turmas</title>
+    <title>Atividades</title>
 </head>
 
 <body>
@@ -29,9 +32,9 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
         <input type="button" value="sair" event="sair.php">
     </a>
     <br><br>
-    <h2>Turmas</h2>
+    <h2>Atividades</h2>
     <br>
-    <a href="cadastrar.php">
+    <a href="cadastrar_atividade.php">
         <input type="button" value="cadastrar">
     </a>
     <br>
@@ -40,22 +43,20 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
             <tr>
                 <th>Código</th>
                 <th>Nome</th>
-                <th>Ações</th>
             </tr>
         </thead>
     </table>
 
     <?php
-    include("listar_turmas.php");
+    include("listar_atividades.php");
 
     if (!empty($turmas)) {
-        foreach ($turmas as $linha) {
+        foreach ($atividades as $linha) {
             echo '<tr>
-            <td> ' . $linha['pk_turma'] . ' </td>
-            <td> ' . $linha['nome_turma'] . ' </td>
-            <td> <a href="editar.php?codigo=' . $linha['pk_turma'] . '"> <button>Editar</button> </a> </td> 
-             <td> <a href="excluir.php?codigo=' . $linha['pk_turma'] . '" onclick="return confirm(\'excluir permamentemente?\')"> <button>Excluir</button> </a> </td>
-            <td> <a href="atividades.php?codigo=' . $linha['pk_turma'] . '"> <button>Atividades</button> </a> </td>
+            <td> ' . $linha['pk_atividade'] . ' </td>
+            <td> ' . $linha['descricao_atividade'] . ' </td>
+            <td> <a href="editar_atividade.php?codigo=' . $linha['pk_turma'] . '"> <button>Editar</button> </a> </td> 
+             <td> <a href="excluir_atividade.php?codigo=' . $linha['pk_turma'] . '" onclick="return confirm(\'excluir permamentemente?\')"> <button>Excluir</button> </a> </td>
             </tr>
             ';
         }
