@@ -12,3 +12,4 @@ if ($stmt->execute()) {
 }
 $stmt->close();
 $conexao->close();
+?>
