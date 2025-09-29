@@ -1,5 +1,5 @@
 <?php
-$db_name = 'mydb'; //sempre quatro $ / db_name é o banco de dados
+$db_name = 'db'; //sempre quatro $ / db_name é o banco de dados
 $db_host = 'localhost'; //sempre é localhost
 $db_user = 'root'; //nunca muda
 $db_password = '';// workbench deixa vazio, phpmyadmin escreve root
