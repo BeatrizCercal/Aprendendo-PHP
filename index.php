@@ -33,7 +33,6 @@ if (isset($_SESSION["nome_professor"]) && isset($_SESSION['conectado'])) {
 
 <label>Senha:</label>
 <input type="senha" name="senha" required>
-
 <input type="submit" value = "Entrar">
 
 <?php
