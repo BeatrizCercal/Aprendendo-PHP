@@ -1,15 +1,15 @@
 <?php
 session_start();
-$erro= '';
+$erro = "";
 
-if (isset($_SESSION['erro'])){
-$erro = ($_SESSION['erro'] ?? '');
-unset ($_SESSION['erro']);
+if (isset($_SESSION['erro'])) {
+    $erro = ($_SESSION['erro'] ?? '');
+    unset($_SESSION['erro']);
 };
 
-if (isset($_SESSION['nome_professor']) && ($_SESSION['conectado'])){
+if (isset($_SESSION['nome_professor']) && ($_SESSION['conectado'])) {
     if ($_SESSION["conectado"] == true);
-    header ("Location: turmas.php");
+    header("Location: turmas.php");
 }
 ?>
 <!DOCTYPE html>
